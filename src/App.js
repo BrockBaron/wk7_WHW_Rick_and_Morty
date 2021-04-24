@@ -1,37 +1,47 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import axios from 'axios';
+import RickAndMortyContainter from './containers/RickAndMortyContainer';
+// fetch R&M api and convert objrct {} into array []
 
+//fetch array itme [charachter;url] 
+// use promis to convert array into json
+// use promise to assign to state
+
+// useEffct to call fetch function
 function App() {
 
-  // const [category, setCategory] = useState([]);
-  // const [location, setLocation] = useState([]);
-  // const [episode, setEpisode] = useState([]);
+  // const categories = [] 
+
+  // let array = () => {
+    
+  // }
+
+  // const uniqueTransport = Array.from(new Set(allTransports));
+  //   return [...uniqueTransport];
 
 
+  // const [categories, setCategories] = useState([])
+
+  // const FetchCategories = function() {
+    // fetch('https://rickandmortyapi.com/api')
+    
+    // .then(res => console.log(res))
 
 
-
-
-  const fetchCategories = function() {
-    fetch('https://rickandmortyapi.com/api')
-    .then(res => res.json())
-    .then(res => console.log(res))
-    // .then (category => setCategory(category))
-    // .catch(error => console.error(error));
-}
 
 //   useEffect(() => {
-//     fetchCategories();
+//     FetchCategories();
 // }, [])
-
-
-
+//   }
 
   return (
     <div className="App">
-      <h1>Rick & Morty app</h1>
+      <h1>Rick & Morty</h1>
+      <RickAndMortyContainter />
     </div>
   );
+
 }
 
 export default App;
