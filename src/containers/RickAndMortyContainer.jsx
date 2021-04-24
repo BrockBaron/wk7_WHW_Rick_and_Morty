@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import CharacterSelect from '../components/CharacterSelect';
+import CharacterDetail from '../components/CharacterDetail';
 
-import axios from 'axios';
+
+// import axios from 'axios';
 // import CharacterDetails from '../components/CharacterDetail'
 // import LocationDetails from '../components/LocationDetail'
 // import EpisodeDetails from '../components/EpisodeDetail'
@@ -10,16 +12,49 @@ const RickAndMortyContainter = () => {
 
         const [characters, setCharacters] = useState([]);
         const [selectedCharacter, setSelectedCharacter] = useState(null);
-        // const [location, setLocation] = useState([]);
-        // const [episode, setEpisode] = useState([]);
         
-        // const charactersAPI = "https://rickandmortyapi.com/api/character/"
+        // const [locations, setLocations] = useState([]);
+        //const [selectedCharacter, setSelectedCharacter] = useState(null);
+        
+        // const [episodes, setEpisodes] = useState([]);
+        //const [selectedCharacter, setSelectedCharacter] = useState(null);
+        
         
         useEffect(() =>{
             fetchCharacters();
         }, [])
         
-    //     const fetchData = () => {
+    
+
+
+    const fetchCharacters = function () {
+        fetch('https://rickandmortyapi.com/api/character/')
+        .then(res => res.json())
+        .then(characters => setCharacters(characters.results))
+        .catch(err => {console.log(err);});
+    }
+
+    const updateCharacterSelected = function(newCharacter) {
+        setSelectedCharacter(newCharacter);
+    }
+
+    return(
+        <> 
+        Rick & morty container
+        <p>< CharacterSelect characters = {characters} updateCharacterSelected = {updateCharacterSelected} /></p>
+        
+        {selectedCharacter ? <CharacterDetail selectedCharacter={selectedCharacter} /> : null}
+
+
+        </>
+    )
+}
+
+
+export default RickAndMortyContainter;
+
+
+//     const fetchData = () => {
     //     
     //     // const locationsAPI = "https://rickandmortyapi.com/api/location/"
     //     // const episodesAPI = "https://rickandmortyapi.com/api/episode/"
@@ -27,8 +62,10 @@ const RickAndMortyContainter = () => {
     //     const getCharactersAPI = axios.get(charachtersAPI)
     //     // const getLocationsAPI = axios.get(locationsAPI)
     //     // const getEpisodesAPI = axios.get(episodesAPI)
-        
-    //     axios.all([getCharactersAPI])
+         // const charactersAPI = "https://rickandmortyapi.com/api/character/"
+    // 
+    
+    //    axios.all([getCharactersAPI])
     //     .then(axios.spread((...allData) => {
     //             const allCharacters = allData[0]
     //             // const allLoactions = allData[1]
@@ -47,36 +84,9 @@ const RickAndMortyContainter = () => {
     // }
 
 
-    const fetchCharacters = function () {
-        fetch('https://rickandmortyapi.com/api/character/')
-        .then(res => res.json())
-        .then(characters => setCharacters(characters.results))
-    }
-
-    const updateCharacterSelected = function(newCharacter) {
-        setSelectedCharacter(newCharacter);
-    }
-
-
 
     // useEffect(() => {
     //     fetchData()
     // },[])
 
     
-
-
-
-    return(
-        <> 
-        Rick & morty containers
-        <p>< CharacterSelect characters = {characters} updateCharacterSelected = {updateCharacterSelected} /></p>
-        
-
-
-        </>
-    )
-}
-
-
-export default RickAndMortyContainter;

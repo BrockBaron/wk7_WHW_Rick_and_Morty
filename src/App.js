@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import axios from 'axios';
 import RickAndMortyContainter from './containers/RickAndMortyContainer';
 // fetch R&M api and convert objrct {} into array []
 
@@ -10,8 +9,17 @@ import RickAndMortyContainter from './containers/RickAndMortyContainer';
 
 // useEffct to call fetch function
 function App() {
+  return (
+    <div className="App">
+      <h1>Rick & Morty</h1>
+      <RickAndMortyContainter />
+    </div>
+  );
 
-  // const categories = [] 
+}
+
+export default App;
+// const categories = [] 
 
   // let array = () => {
     
@@ -34,17 +42,6 @@ function App() {
 //     FetchCategories();
 // }, [])
 //   }
-
-  return (
-    <div className="App">
-      <h1>Rick & Morty</h1>
-      <RickAndMortyContainter />
-    </div>
-  );
-
-}
-
-export default App;
 
 // const uniqueTransport = Array.from(new Set(allTransports));
 //   return [...uniqueTransport];
