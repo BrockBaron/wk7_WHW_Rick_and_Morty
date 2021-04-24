@@ -13,7 +13,7 @@ const CharacterSelect = ({characters, updateCharacterSelected}) => {
 
 return(
     <>
-    <p>Character:</p>
+    <p>Character Selector:</p>
     
     <select defaultValue="" onChange={handleChange}>
             <option value="" selected>Choose a Character</option>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
 import RickAndMortyContainter from './containers/RickAndMortyContainer';
 // import { Route } from "react-router-dom"

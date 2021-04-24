@@ -13,7 +13,7 @@ const LocationSelect = ({locations, updateLocationSelected}) => {
 
 return(
     <>
-    <p>Location:</p>
+    <p>Location Selector:</p>
     
     <select defaultValue="" onChange={handleChange}>
             <option value="" selected>Choose a Location</option>

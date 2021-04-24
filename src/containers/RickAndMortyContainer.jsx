@@ -5,6 +5,9 @@ import CharacterDetail from '../components/CharacterDetail';
 import LocationSelect from '../components/LocationSelect';
 import LocationDetail from '../components/LocationDetail';
 
+import EpisodeSelect from '../components/EpisodeSelect';
+import EpisodeDetail from '../components/EpisodeDetail';
+
 // import axios from 'axios';
 // import CharacterDetails from '../components/CharacterDetail'
 // import LocationDetails from '../components/LocationDetail'
@@ -18,13 +21,14 @@ const RickAndMortyContainter = () => {
         const [locations, setLocations] = useState([]);
         const [selectedLocation, setSelectedLocation] = useState(null);
         
-        // const [episodes, setEpisodes] = useState([]);
-        //const [selectedCharacter, setSelectedCharacter] = useState(null);
+        const [episodes, setEpisodes] = useState([]);
+        const [selectedEpisode, setSelectedEpisode] = useState(null);
         
         
         useEffect(() =>{
             fetchCharacters();
             fetchLocations();
+            fetchEpisodes();
         }, [])
         
     
@@ -53,11 +57,17 @@ const RickAndMortyContainter = () => {
         setSelectedLocation(newLocation);
     }
 
-
-
-
-
 // Fetch Episodes
+const fetchEpisodes = function () {
+        fetch('https://rickandmortyapi.com/api/episode/')
+        .then(res => res.json())
+        .then(episodes => setEpisodes(episodes.results))
+        .catch(err => {console.log(err);});
+    }
+
+    const updateEpisodeSelected = function(newEpisode) {
+        setSelectedEpisode(newEpisode);
+}
 
 
 
@@ -70,6 +80,9 @@ const RickAndMortyContainter = () => {
         < LocationSelect locations = {locations} updateLocationSelected = {updateLocationSelected} />
         {selectedLocation ? <LocationDetail selectedLocation={selectedLocation} /> : null}
         
+        < EpisodeSelect episodes = {episodes} updateEpisodeSelected = {updateEpisodeSelected} />
+        {selectedEpisode ? <EpisodeDetail selectedEpisode={selectedEpisode} /> : null}
+
         </>
     )
 }
