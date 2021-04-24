@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import RickAndMortyContainter from './containers/RickAndMortyContainer';
+// import { Route } from "react-router-dom"
+
 // fetch R&M api and convert objrct {} into array []
 
 //fetch array itme [charachter;url] 
@@ -9,7 +11,7 @@ import RickAndMortyContainter from './containers/RickAndMortyContainer';
 
 // useEffct to call fetch function
 function App() {
-  return (
+  return (   
     <div className="App">
       <h1>Rick & Morty</h1>
       <RickAndMortyContainter />
