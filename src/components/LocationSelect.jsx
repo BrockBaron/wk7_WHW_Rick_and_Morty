@@ -7,8 +7,8 @@ const LocationSelect = ({locations, updateLocationSelected}) => {
         updateLocationSelected(chosenLocation);
     }
 
-    const locationOptions = locations.map((location, index) => {
-        return <option value={index} key={index}>{location.name}</option>
+    const locationOptions = locations.map((location, id) => {
+        return <option value={id} key={id}>{location.name}</option>
     })
 
 return(

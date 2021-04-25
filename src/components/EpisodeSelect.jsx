@@ -7,8 +7,8 @@ const EpisodeSelect = ({episodes, updateEpisodeSelected}) => {
         updateEpisodeSelected(chosenEpisode);
     }
 
-    const episodeOptions = episodes.map((episode, index) => {
-        return <option value={index} key={index}>{episode.episode}</option>
+    const episodeOptions = episodes.map((episode, id) => {
+        return <option value={id} key={id}>{episode.episode}</option>
     })
 
 return(

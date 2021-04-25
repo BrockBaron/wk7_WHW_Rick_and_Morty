@@ -7,8 +7,8 @@ const CharacterSelect = ({characters, updateCharacterSelected}) => {
         updateCharacterSelected(chosenCharacter);
     }
 
-    const characterOptions = characters.map((character, index) => {
-        return <option value={index} key={index}>{character.name}</option>
+    const characterOptions = characters.map((character, id) => {
+        return <option value={id} key={id}>{character.name}</option>
     })
 
 return(
